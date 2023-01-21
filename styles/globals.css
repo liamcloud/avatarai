@@ -87,12 +87,7 @@ body {
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: rgb(135, 206, 235);
 }
 
 a {
@@ -104,4 +99,20 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+.header{
+  font-family: "Work Sans";
+  font-size: 40px;
+  padding-top:10%;
+}
+
+.paragraph{
+  text-align: center;
+  padding-top:10px;
+  font-family: "Work Sans";
+  font-weight: 200;
+}
+.image {
+  width: 100%;
 }
