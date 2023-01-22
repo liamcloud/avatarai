@@ -35,8 +35,10 @@ export default function Home() {
     // If another error, drop error
     if (!response.ok) {
       console.log(`Error: ${data.error}`)
-          return
+      return
     }
+    // Set image data into state property
+    setImg(data.image);
   }
   return (
     <>
