@@ -117,11 +117,11 @@ a {
 }
 .image {
   width: 100%;
+  position: sticky;
 }
 
-.promptContainer{
+/* .promptContainer{
   width:50%;
-  position: absolute;
   top: 50%;
   transform: translate(0, -50%);
   padding: 10px;
@@ -138,13 +138,13 @@ a {
   color:black;
   font-family: "Work Sans";
   font-weight: 400;
-}
+} */
 
 span{
   font-style: italic;
 }
 
-.generate-button{
+/* .generate-button{
 width:100px;
 padding-top:100px;
 }
@@ -173,4 +173,113 @@ padding-top:100px;
 
 .prompt-buttons{
   padding-top: 25px;
+} */
+
+.flexCenter{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top:50px;
+  width: 55%;
+  }
+
+.generate-button{
+  place-content: center;
+  background: #87CEEB;
+  border-radius: 20px;
+  display: flex;
+  margin: 0 auto;
+  padding: 6px 14px;
+  width: 50%;
+  text-align: center;
+  cursor: pointer;
+}
+
+.generate p {
+  width:100px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 15px;
+  font-family: "Work Sans";
+  font-weight: 400;
+  border-radius:10px;
+}
+
+.prompt-box{
+  background:white;
+  border:none;
+  width:100%;
+  display:flex;
+  margin: 0 auto;
+  padding:30px;
+  border-radius:10px;
+  color:black;
+  font-family: "Work Sans";
+  font-weight: 400;
+} 
+
+.promptContainer{
+  width:40%;
+  padding:5%;
+}
+
+.prompt-buttons{
+  padding-top:25px;
+}
+
+.finalPrompt{
+  font-family: "Work Sans";
+  font-weight: 400;
+}
+
+.flexPrompt{
+width: 30%;
+  }
+
+.generate-button{
+  place-content: center;
+  background: #87CEEB;
+  border-radius: 20px;
+  display: flex;
+  margin: 0 auto;
+  padding: 6px 14px;
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+}
+
+.generate p {
+  width:100px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 15px;
+  font-family: "Work Sans";
+  font-weight: 400;
+  border-radius:10px;
+}
+
+.prompt-box{
+  background:white;
+  border:none;
+  width:100%;
+  display:flex;
+  margin: 0 auto;
+  padding:30px;
+  border-radius:10px;
+  color:black;
+  font-family: "Work Sans";
+  font-weight: 400;
+} 
+
+.promptContainer{
+  width:100%;
+}
+
+.prompt-buttons{
+  padding-top:25px;
+}
+
+.finalPrompt{
+  font-family: "Work Sans";
+  font-weight: 400;
 }
