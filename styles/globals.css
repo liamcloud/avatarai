@@ -87,7 +87,7 @@ body {
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: rgb(135, 206, 235);
+  background: black;
 }
 
 a {
@@ -103,16 +103,58 @@ a {
 
 .header{
   font-family: "Work Sans";
-  font-size: 40px;
+  font-size: 60px;
   padding-top:10%;
+  text-align: center;
 }
 
 .paragraph{
   text-align: center;
   padding-top:10px;
+  font-size: 20px;
   font-family: "Work Sans";
-  font-weight: 200;
+  font-weight: 300;
 }
 .image {
   width: 100%;
+}
+
+.promptContainer{
+  width:50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  padding: 10px;
+}
+
+.prompt-box{
+  background:white;
+  border:none;
+  width:70%;
+  display:flex;
+  margin: 0 auto;
+  padding:30px;
+  border-radius:10px;
+  color:black;
+  font-family: "Work Sans";
+  font-weight: 400;
+}
+
+span{
+  font-style: italic;
+}
+
+.generate p {
+  background:blue;
+  width:100px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 15px;
+  font-family: "Work Sans";
+  font-weight: 400;
+  border-radius:10px;
+}
+
+.prompt-buttons{
+  padding-top:15px;
 }
