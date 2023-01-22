@@ -144,8 +144,12 @@ span{
   font-style: italic;
 }
 
+.generate-button{
+width:100px;
+padding-top:100px;
+}
+
 .generate p {
-  background:blue;
   width:100px;
   text-align: center;
   margin: 0 auto;
@@ -155,6 +159,18 @@ span{
   border-radius:10px;
 }
 
+.generate-button{
+  place-content: center;
+  background: #87CEEB;
+  border-radius: 20px;
+  display: flex;
+  margin: 0 auto;
+  padding: 6px 14px;
+  width: 30%;
+  text-align: center;
+  cursor: pointer;
+}
+
 .prompt-buttons{
-  padding-top:15px;
+  padding-top: 25px;
 }
