@@ -4,7 +4,7 @@ import '@fontsource/work-sans'
 import clouds from '../public/clouds.png'
 import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -22,17 +22,17 @@ export default function Home() {
   const generateAction = async () => {
     console.log('Generating...')
     // If this is a retry request, take away retryCount
-    setIsGenerating(true);
+    setIsGenerating(true)
     if (retry > 0) {
       setRetryCount((prevState) => {
         if (prevState === 0) {
-          return 0;
+          return 0
         } else {
-          return prevState - 1;
+          return prevState - 1
         }
-      });
+      })
 
-      setRetry(0);
+      setRetry(0)
     }
 
     // Add the fetch request
@@ -46,59 +46,56 @@ export default function Home() {
 
     const data = await response.json()
     if (response.status === 503) {
-      setRetry(data.estimated_time);
+      setRetry(data.estimated_time)
       return
     }
 
     // If another error, drop error
     if (!response.ok) {
       console.log(`Error: ${data.error}`)
-      setIsGenerating(false);
+      setIsGenerating(false)
       return
     }
-    setFinalPrompt(input);
+    setFinalPrompt(input)
     // Remove content from input box
-    setInput('');
-    setImg(data.image);
-    setIsGenerating(false);
+    setInput('')
+    setImg(data.image)
+    setIsGenerating(false)
     // Set image data into state property
-    setImg(data.image);
+    setImg(data.image)
     console.log(img)
-    setIsGenerating(false);
+    setIsGenerating(false)
   }
 
   const sleep = (ms) => {
     return new Promise((resolve) => {
-      setTimeout(resolve, ms);
-    });
-  };
-
-  useEffect(() => {
-    console.log("hello")
-  }, [img, retryCount]);
-
+      setTimeout(resolve, ms)
+    })
+  }
 
   useEffect(() => {
     const runRetry = async () => {
       if (retryCount === 0) {
-        console.log(`Model still loading after ${maxRetries} retries. Try request again in 5 minutes.`);
-        setRetryCount(maxRetries);
-        return;
-        }
+        console.log(
+          `Model still loading after ${maxRetries} retries. Try request again in 5 minutes.`,
+        )
+        setRetryCount(maxRetries)
+        return
+      }
 
-      console.log(`Trying again in ${retry} seconds.`);
+      console.log(`Trying again in ${retry} seconds.`)
 
-      await sleep(retry * 1000);
+      await sleep(retry * 1000)
 
-      await generateAction();
-    };
-
-    if (retry === 0) {
-      return;
+      await generateAction()
     }
 
-    runRetry();
-  }, [retry]);
+    if (retry === 0) {
+      return
+    }
+
+    runRetry()
+  }, [retry])
   return (
     <>
       <Head>
@@ -115,32 +112,32 @@ export default function Home() {
             <span>imliamcloud</span>" in the prompt
           </p>
         </div>
-        <div className={`${img ? "flexCenter" : "flexPrompt"}`}>
-        <div className={`promptContainer`}>
-          <input
-            placeholder="Portrait of imliamcloud by Michelangelo..."
-            className="prompt-box"
-            value={input}
-            onChange={onChange}
-          />
+        <div className={`${img ? 'flexCenter' : 'flexPrompt'}`}>
+          <div className={`promptContainer`}>
+            <input
+              placeholder="Portrait of imliamcloud by Michelangelo..."
+              className="prompt-box"
+              value={input}
+              onChange={onChange}
+            />
 
-          <div className="prompt-buttons">
-            <a onClick={generateAction} className="generate-button">
-              <div className="generate">
-                <p>Generate</p>
+            <div className="prompt-buttons">
+              <a onClick={generateAction} className="generate-button">
+                <div className="generate">
+                  <p>Generate</p>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div>
+            {img && (
+              <div className="output-content">
+                <Image src={img} width={512} height={512} alt={input} />
+                <p className="finalPrompt">{finalPrompt}</p>
               </div>
-            </a>
+            )}
           </div>
         </div>
-        <div>
-        {img && (
-      <div className="output-content">
-        <Image src={img} width={512} height={512} alt={input} />
-        <p className='finalPrompt'>{finalPrompt}</p>
-      </div>
-    )}
-    </div>
-    </div>
         <Image
           loader=""
           className="image"
