@@ -75,7 +75,7 @@ export default function Home() {
 
   useEffect(() => {
     console.log("hello")
-  }, [img, generateAction, retryCount]);
+  }, [img, retryCount]);
 
 
   useEffect(() => {
