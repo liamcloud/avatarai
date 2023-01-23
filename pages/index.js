@@ -16,6 +16,7 @@ export default function Home() {
   const [retryCount, setRetryCount] = useState(maxRetries)
   const [isGenerating, setIsGenerating] = useState(false)
   const [finalPrompt, setFinalPrompt] = useState('')
+  
   const onChange = (event) => {
     setInput(event.target.value)
   }
@@ -74,6 +75,8 @@ export default function Home() {
   }
 
   useEffect(() => {
+    
+
     const runRetry = async () => {
       if (retryCount === 0) {
         console.log(
